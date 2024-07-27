@@ -1,0 +1,197 @@
+@font-face {
+    font-family: 'Minitel';
+    src: url('./Minitel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Minitel';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.minitel-screen {
+    border: 10px solid #333;
+    padding: 20px;
+    width: 80%;
+    height: 80%;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    position: relative;
+}
+
+.minitel-content {
+    padding: 10px;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    text-shadow: 0.06rem 0 0.06rem #ea36af, -0.125rem 0 0.06rem #75fa69;
+    letter-spacing: 0.125em;
+    animation-duration: 0.01s;
+    animation-name: textflicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.input-boxes {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+input[type="text"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.boxes {
+    display: flex;
+    position: relative;
+}
+
+.box {
+    width: 1.5rem;
+    height: 2.2rem;
+    margin: 0 0.1rem;
+    text-align: center;
+    font-family: 'Minitel';
+    font-size: 1.5rem;
+    color: #00FF00;
+    background-color: black;
+    text-shadow: 0.06rem 0 0.06rem #ea36af, -0.125rem 0 0.06rem #75fa69;
+    animation-duration: 0.01s;
+    animation-name: textflicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+    z-index: 9;
+}
+
+.box::after {
+    content: '_';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #00FF00;
+    text-align: center;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+.cursor {
+    font-family: 'Minitel';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #00FF00;
+    animation: blink 1s step-end infinite;
+    position: absolute;
+    left: 0;
+    display: none;
+    z-index: 10;
+}
+
+.scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: rgba(0, 255, 0, 0.2);
+    pointer-events: none;
+    z-index: 11; 
+    animation: scan 1s linear infinite;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.enter-button {
+    font-family: 'Minitel';
+    font-size: 1.5rem;
+    color: #00FF00;
+    background-color: black;
+    border: 2px solid #00FF00;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-shadow: 0.06rem 0 0.06rem #ea36af, -0.125rem 0 0.06rem #75fa69;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    margin-top: 1rem;
+    align-self: center;
+}
+
+.enter-button:hover {
+    background-color: #00FF00;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+.enter-button:active {
+    background-color: #333;
+    color: #00FF00;
+    box-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+
+@keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: #00FF00;
+    }
+}
+
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.1) 50%, transparent 50%) 50% 50%,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 50%, transparent 50%) 50% 50%;
+    background-size: 2px 2px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes textflicker {
+    from {
+        text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+    }
+    to {
+        text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+    }
+}

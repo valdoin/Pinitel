@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinitel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="minitel-screen">
+        <div class="crt-effect"></div>
+        <div class="scanline"></div>
+        <div class="minitel-content">
+            <h1>Pinitel</h1>
+            <p>Basic text editor imitating Minitel aesthetic.</p>
+            <div class="input-container">
+                <div class="label-input">File name : </div>
+                <div class="input-boxes">
+                    <input type="text" id="nameInput" maxlength="10" oninput="updateBoxes()" />
+                    <div class="boxes">
+                        <div class="box" id="box0"></div>
+                        <div class="box" id="box1"></div>
+                        <div class="box" id="box2"></div>
+                        <div class="box" id="box3"></div>
+                        <div class="box" id="box4"></div>
+                        <div class="box" id="box5"></div>
+                        <div class="box" id="box6"></div>
+                        <div class="box" id="box7"></div>
+                        <div class="box" id="box8"></div>
+                        <div class="box" id="box9"></div>
+                    </div>
+                    <span class="cursor" id="cursor">|</span>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="enter-button">Enter</button>
+            </div>
+            <pre class="ascii-art">
+                <code>
+                      (
+                        )     (
+                 ___...(-------)-....___
+             .-""       )    (          ""-.
+       .-'``'|-._             )         _.-|
+      /  .--.|   `""---...........---""`   |
+     /  /    |                             |
+     |  |    |                             |
+      \  \   |                             |
+       `\ `\ |                             |
+         `\ `|                             |
+         _/ /\                             /
+        (__/  \                           /
+     _..---""` \                         /`""---.._
+  .-'           \                       /          '-.
+ :               `-.__             __.-'              :
+ :                  ) ""---...---"" (                 :
+  '._               `"--...___...--"`              _.'
+     \""--..__                              __..--""/
+     '._     """----.....______.....----"""     _.'
+        `""--..,,_____            _____,,..--""`
+                      `"""----"""`
+                </code>
+            </pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
